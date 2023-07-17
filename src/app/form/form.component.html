@@ -1,0 +1,33 @@
+<form (ngSubmit)="f.form.valid" #f="ngForm">
+  <div class="agregar">
+    <div class="agregar_contenedor">
+      <select class="agregar_tipo" (change)="cambio($event)">
+        <option value="ing" selected>+</option>
+        <option value="egr">-</option>
+      </select>
+      <input
+        [ngClass]="{redfocus: type === 'egr'}"
+        type="text"
+        class="agregar_descripcion"
+        placeholder="Agregar Descripción"
+        name="name"
+        [(ngModel)]="name"
+        [ngModelOptions]="{ standalone: true }"
+        required="true"
+      />
+      <input
+        type="number"
+        class="agregar_valor"
+        placeholder="Valor"
+        name="value"
+        [(ngModel)]="value"
+        [ngModelOptions]="{ standalone: true }"
+        required="true"
+
+      />
+      <button class="agregar_btn" (click)="add()">
+        <i class="ion-ios-checkmark-outline"></i>
+      </button>
+    </div>
+  </div>
+</form>
